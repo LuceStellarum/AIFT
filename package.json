@@ -1,7 +1,7 @@
 {
-  "name": "render-neon-test",
+  "name": "render-neon-chess",
   "version": "1.0.0",
-  "description": "Simple Render + Neon test",
+  "description": "Render + Neon + Chessboard",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
