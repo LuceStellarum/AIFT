@@ -1,32 +1,35 @@
 <!DOCTYPE html>
-
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>Chess Board</title>
+<meta charset="UTF-8">
+<title>Opening Guess</title>
 
-  <!-- chessboard 스타일 -->
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
 
-  <link rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chess.js@1.0.0/dist/chess.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
 
-  <!-- 페이지 스타일 -->
-
-  <link rel="stylesheet" href="style.css">
-
-  <!-- 체스 라이브러리 -->
-
-  <script src="https://cdn.jsdelivr.net/npm/chess.js@1.0.0/dist/chess.min.js"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
-
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <div id="board"></div>
+<h2>Opening Guess</h2>
 
-  <script src="app.js"></script>
+<div id="board"></div>
+
+<div id="controls">
+  <button id="undoBtn">되돌리기</button>
+  <button id="resetBtn">초기화</button>
+  <button id="submitGuess">추측 제출</button>
+</div>
+
+<p id="moveList"></p>
+
+<div id="results"></div>
+
+<script src="app.js"></script>
 
 </body>
 </html>
