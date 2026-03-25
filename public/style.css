@@ -1,9 +1,34 @@
-body {
-font-family: sans-serif;
-text-align: center;
+body{
+font-family:sans-serif;
+text-align:center;
 }
 
-#board {
-width: 600px;
-margin: 20px auto;
+#board{
+width:600px;
+margin:20px auto;
 }
+
+#controls button{
+margin:5px;
+padding:8px 12px;
+font-size:14px;
+}
+
+.row{
+margin:5px;
+}
+
+.cell{
+
+display:inline-block;
+width:42px;
+height:42px;
+line-height:42px;
+border:1px solid black;
+margin:2px;
+font-size:11px;
+}
+
+.green{background:#6aaa64;}
+.yellow{background:#c9b458;}
+.gray{background:#787c7e;}
