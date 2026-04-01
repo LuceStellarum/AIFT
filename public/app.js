@@ -19,6 +19,9 @@ const board = Chessboard("board",{
 draggable:true,
 position:"start",
 
+pieceTheme:
+"https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/img/chesspieces/wikipedia/{piece}.png"
+
 onDrop:(source,target)=>{
 
 const move = game.move({
