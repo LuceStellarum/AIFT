@@ -19,8 +19,7 @@ const board = Chessboard("board",{
 draggable:true,
 position:"start",
 
-pieceTheme:
-"https://cdn.jsdelivr.net/npm/@chrisoakman/chessboardjs@1.0.0/img/chesspieces/wikipedia/{piece}.png",
+pieceTheme: "img/chesspieces/wikipedia/{piece}.png",
 
 onDrop:(source,target)=>{
 
