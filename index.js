@@ -19,7 +19,7 @@ const result = await pool.query(`
   SELECT
     move1,move2,move3,move4,move5,move6,
     move7,move8,move9,move10,move11,move12
-  FROM openings
+  FROM "openings"
   ORDER BY random()
   LIMIT 1
 `);
