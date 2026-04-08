@@ -14,7 +14,6 @@ app.get("/random-opening", async (req, res) => {
 
 try {
 
-```
 const result = await pool.query(`
   SELECT
     move1,move2,move3,move4,move5,move6,
@@ -32,14 +31,13 @@ const moves = [
 ];
 
 res.json(moves);
-```
+
 
 } catch (err) {
 
-```
 console.error(err);
 res.status(500).send("DB error");
-```
+
 
 }
 
