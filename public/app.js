@@ -23,6 +23,10 @@ pieceTheme: "img/chesspieces/wikipedia/{piece}.png",
 
 onDrop:(source,target)=>{
 
+if (guessMoves.length >= 12) {
+    return "snapback";
+  }
+
 const move = game.move({
 from:source,
 to:target,
@@ -34,6 +38,10 @@ if(!move) return "snapback";
 guessMoves.push(move.san);
 
 updateMoveList();
+
+setTimeout(()=>{
+    board.position(game.fen());
+},50)
 
 }
 
@@ -60,6 +68,28 @@ game.reset();
 board.start();
 guessMoves = [];
 updateMoveList();
+
+};
+
+document.getElementById("undoBtn").onclick = () => {
+
+  const undoneMove = game.undo();
+
+  if (undoneMove) {
+    board.position(game.fen()); // 보드 동기화
+    guessMoves.pop();           // 배열도 같이 되돌림
+    updateMoveList();
+  }
+
+};
+
+document.getElementById("resetBtn").onclick = () => {
+
+  game.reset();         // 게임 초기화
+  board.start();        // 보드 초기화
+  guessMoves = [];      // 입력 초기화
+
+  updateMoveList();
 
 };
 
