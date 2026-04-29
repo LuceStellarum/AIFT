@@ -1,6 +1,5 @@
 require("dotenv").config();
 
-console.log("DB URL:", process.env.DATABASE_URL);
 const express = require("express");
 const path = require("path")
 const { Pool } = require("pg");
