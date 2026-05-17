@@ -93,6 +93,29 @@ document.getElementById("resetBtn").onclick = () => {
 
 };
 
+
+// --- Background Color Changer ---
+const bgColorSelect = document.getElementById("bgColorSelect");
+const changeBgBtn = document.getElementById("changeBgBtn");
+
+function changeBackgroundColor() {
+    const selectedColor = bgColorSelect.value;
+    document.body.style.backgroundColor = selectedColor;
+    localStorage.setItem("preferredBgColor", selectedColor); // Save preference
+}
+
+// Load saved background color on page load
+document.addEventListener("DOMContentLoaded", () => {
+    const savedColor = localStorage.getItem("preferredBgColor");
+    if (savedColor) {
+        document.body.style.backgroundColor = savedColor;
+        bgColorSelect.value = savedColor; // Update select dropdown
+    }
+});
+
+changeBgBtn.addEventListener("click", changeBackgroundColor);
+// --- End Background Color Changer ---
+
 function evaluateGuess(){
 
 const row=document.createElement("div");
@@ -130,15 +153,13 @@ document.getElementById("results").appendChild(row);
 attempts++;
 
 if(correctCount===12 && solvedAt===null){
-
-solvedAt=attempts;
-alert("정답! "+solvedAt+"번째 시도");
+    solvedAt=attempts;
+    alert("정답! " + targetOpening.name + " (" + solvedAt + "번째 시도)");
 
 }
 
 if(attempts>=6){
-
-alert("실패! 정답: "+targetOpening.join(" "));
+    alert("실패! 정답: " + targetOpening.name + " (" + targetOpening.moves.join(" ") + ")");
 
 }
 
