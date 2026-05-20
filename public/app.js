@@ -97,11 +97,22 @@ document.getElementById("resetBtn").onclick = () => {
 // --- Background Color Changer ---
 const bgColorSelect = document.getElementById("bgColorSelect");
 const changeBgBtn = document.getElementById("changeBgBtn");
+// 제목 h2 요소를 가져옵니다.
+const titleElement = document.querySelector('h2');
+// 어두운 색상 목록을 정의합니다.
+const darkColors = ["darkblue", "darkslategray", "darkolivegreen"];
 
 function changeBackgroundColor() {
     const selectedColor = bgColorSelect.value;
     document.body.style.backgroundColor = selectedColor;
     localStorage.setItem("preferredBgColor", selectedColor); // Save preference
+
+    // 선택된 색상이 어두운 색상 목록에 있는지 확인하고 제목 색상을 변경합니다.
+    if (darkColors.includes(selectedColor)) {
+        titleElement.style.color = 'white';
+    } else {
+        titleElement.style.color = 'black'; // 밝은 색상일 경우 기본값으로 검은색
+    }
 }
 
 // Load saved background color on page load
@@ -110,6 +121,13 @@ document.addEventListener("DOMContentLoaded", () => {
     if (savedColor) {
         document.body.style.backgroundColor = savedColor;
         bgColorSelect.value = savedColor; // Update select dropdown
+
+        // 저장된 배경색에 따라 제목 텍스트 색상도 적용합니다.
+        if (darkColors.includes(savedColor)) {
+            titleElement.style.color = 'white';
+        } else {
+            titleElement.style.color = 'black';
+        }
     }
 });
 
@@ -154,13 +172,11 @@ attempts++;
 
 if(correctCount===12 && solvedAt===null){
     solvedAt=attempts;
-    alert("정답! " + targetOpening.name + " (" + solvedAt + "번째 시도)");
-
-}
-
-if(attempts>=6){
-    alert("실패! 정답: " + targetOpening.name + " (" + targetOpening.moves.join(" ") + ")");
-
+    alert("정답! (" + solvedAt + "번째 시도)");
+    document.getElementById("submitGuess").disabled = true;
+} else if(attempts >= 6){
+    alert("실패! 정답: " + targetOpening.join(" "));
+    document.getElementById("submitGuess").disabled = true;
 }
 
 }
